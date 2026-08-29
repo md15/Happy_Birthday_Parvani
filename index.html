@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="theme-color" content="#ff9a9e">
+
+<title>Happy Birthday My Love ❤️</title>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+*{
+    box-sizing:border-box;
+}
+
+
+html,
+body{
+
+    width:100%;
+    min-height:100%;
+
+    overflow-x:hidden;
+
+    -webkit-text-size-adjust:100%;
+
+}
+
+
+body{
+
+    margin:0;
+
+    min-height:100svh;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4,
+        #ffd1dc
+    );
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    padding:
+    env(safe-area-inset-top)
+    12px
+    env(safe-area-inset-bottom);
+
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+
+
+/* ================= PAGE CONTROL ================= */
+
+
+.hidden{
+
+    display:none!important;
+
+}
+
+
+#message,
+#memoriesPage{
+
+    display:none;
+
+}
+
+
+
+/* ================= MAIN CARD ================= */
+
+
+.card{
+
+    width:100%;
+
+    max-width:520px;
+
+    max-height:95svh;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+
+    background:
+
+    rgba(255,255,255,.96);
+
+
+    backdrop-filter:blur(12px);
+
+
+    border-radius:32px;
+
+
+    padding:25px;
+
+
+    box-shadow:
+
+    0 20px 60px rgba(255,70,120,.25);
+
+
+    animation:
+
+    float 3s infinite ease-in-out;
+
+
+}
+
+
+
+.card::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+
+.card::-webkit-scrollbar-thumb{
+
+    background:#ff9bb5;
+
+    border-radius:20px;
+
+}
+
+
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+
+
+
+
+/* ================= POPUP ================= */
+
+
+.popup{
+
+animation:popup .8s ease;
+
+}
+
+
+@keyframes popup{
+
+from{
+
+opacity:0;
+
+transform:
+scale(.85)
+translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+scale(1)
+translateY(0);
+
+}
+
+}
+
+
+
+
+
+/* ================= HEART FALL ================= */
+
+
+.heart{
+
+position:fixed;
+
+top:-20px;
+
+z-index:50;
+
+pointer-events:none;
+
+animation:
+
+fall linear forwards;
+
+}
+
+
+
+@keyframes fall{
+
+to{
+
+transform:
+
+translateY(110vh)
+
+rotate(360deg);
+
+
+opacity:0;
+
+}
+
+}
+
+
+
+
+
+/* ================= CAKE ================= */
+
+
+.cake-area{
+
+margin-top:30px;
+
+cursor:pointer;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fff0f5,
+
+#ffe4ec
+
+);
+
+
+border-radius:25px;
+
+
+padding:20px;
+
+
+text-align:center;
+
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+
+.single-cake{
+
+
+font-size:
+
+clamp(65px,20vw,100px);
+
+
+display:inline-block;
+
+
+transition:1s;
+
+
+}
+
+
+
+.cut-cake{
+
+animation:
+
+cakeCut 1s forwards;
+
+}
+
+
+
+@keyframes cakeCut{
+
+
+50%{
+
+transform:scale(1.25);
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+.cake-piece{
+
+
+font-size:
+
+clamp(50px,18vw,85px);
+
+
+display:inline-block;
+
+
+animation:
+
+piecePop 1s ease;
+
+}
+
+
+
+@keyframes piecePop{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+scale(.3)
+
+rotate(-40deg);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+
+scale(1)
+
+rotate(0);
+
+}
+
+
+}
+
+
+#birthdayMessage{
+
+text-align:center;
+
+width:100%;
+
+}
+
+
+
+
+
+
+
+/* ================= TEXT ================= */
+
+
+.birthday-text{
+
+
+font-size:
+
+clamp(18px,5vw,26px);
+
+
+
+font-weight:bold;
+
+
+
+color:#ff4d88;
+
+
+
+text-shadow:
+
+0 2px 10px #ffb6c1;
+
+
+
+animation:
+
+pulse 1.5s infinite;
+
+
+}
+
+
+
+@keyframes pulse{
+
+
+50%{
+
+transform:scale(1.1);
+
+}
+
+}
+
+
+
+
+
+.card p,
+.card h1,
+.card h2,
+.card h3{
+
+text-align:center;
+
+}
+
+
+
+
+
+/* ================= LETTERS ================= */
+
+
+.letter{
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fff0f5,
+
+#ffe5ee
+
+);
+
+
+padding:22px;
+
+
+border-radius:25px;
+
+
+margin-top:20px;
+
+
+cursor:pointer;
+
+
+box-shadow:
+
+0 10px 25px #0002;
+
+
+}
+
+
+
+
+
+/* ================= IMAGES ================= */
+
+
+img{
+
+max-width:100%;
+
+height:auto;
+
+display:block;
+
+}
+
+
+
+
+
+
+/* ================= AUDIO ================= */
+
+
+audio{
+
+width:100%;
+
+max-width:100%;
+
+}
+
+
+
+
+
+/* ================= BUTTONS ================= */
+
+
+button{
+
+touch-action:manipulation;
+
+
+width:90%;
+
+
+max-width:320px;
+
+
+display:block;
+
+
+margin-left:auto!important;
+
+
+margin-right:auto!important;
+
+
+padding:14px 20px!important;
+
+
+font-size:18px;
+
+
+font-weight:800;
+
+
+border-radius:20px!important;
+
+
+background:#e91e63!important;
+
+
+color:white!important;
+
+
+box-shadow:
+
+0 8px 25px rgba(233,30,99,.45);
+
+
+transition:.3s;
+
+
+}
+
+
+
+button:active{
+
+transform:scale(.94);
+
+}
+
+
+
+
+
+
+
+/* ================= GIFT ================= */
+
+
+.gift-popup{
+
+
+position:fixed;
+
+
+top:50%;
+
+
+left:50%;
+
+
+transform:
+
+translate(-50%,-50%)
+
+scale(0);
+
+
+
+background:white;
+
+
+
+padding:22px;
+
+
+
+border-radius:30px;
+
+
+
+box-shadow:
+
+0 20px 50px #0005;
+
+
+
+z-index:9999;
+
+
+
+animation:
+
+giftShow .6s forwards;
+
+
+
+width:90%;
+
+
+max-width:450px;
+
+
+max-height:90svh;
+
+
+overflow:auto;
+
+
+}
+
+
+
+.gift-gallery{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+gap:15px;
+
+
+}
+
+
+
+.gift-gallery img{
+
+
+aspect-ratio:1;
+
+
+object-fit:cover;
+
+
+border-radius:22px;
+
+
+}
+
+
+
+@keyframes giftShow{
+
+
+to{
+
+transform:
+
+translate(-50%,-50%)
+
+scale(1);
+
+}
+
+}
+
+
+
+
+
+/* ================= TIMER ================= */
+
+
+#loveTimer{
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ff9a9e,
+
+#fad0c4
+
+);
+
+
+color:white;
+
+
+font-weight:900;
+
+
+border-radius:25px;
+
+
+padding:18px 10px;
+
+
+box-shadow:
+
+0 10px 30px rgba(255,80,130,.45);
+
+
+animation:pulseTimer 2s infinite;
+
+
+}
+
+
+
+@keyframes pulseTimer{
+
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+}
+
+
+
+
+
+
+/* ================= GIFT CENTER ================= */
+
+
+#gift{
+
+
+width:170px;
+
+
+height:170px;
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+margin:auto;
+
+
+font-size:110px!important;
+
+
+border-radius:50%;
+
+
+animation:giftFloat 2s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes giftFloat{
+
+
+50%{
+
+transform:
+
+translateY(-12px)
+
+scale(1.05);
+
+}
+
+}
+
+
+
+
+
+
+/* ================= FINAL ANIMATION ================= */
+
+
+@keyframes bounceLove{
+
+
+0%,100%{
+
+transform:
+
+translateY(0)
+
+scale(1)
+
+rotate(0);
+
+}
+
+
+50%{
+
+transform:
+
+translateY(-30px)
+
+scale(1.15)
+
+rotate(15deg);
+
+}
+
+
+}
+
+
+
+@keyframes floatMessage{
+
+
+0%,100%{
+
+transform:
+
+translate(0,0)
+
+rotate(0);
+
+}
+
+
+50%{
+
+transform:
+
+translate(20px,-20px)
+
+rotate(5deg);
+
+}
+
+
+}
+
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:640px){
+
+
+body{
+
+padding:10px;
+
+align-items:center;
+
+}
+
+
+
+.card{
+
+
+padding:18px!important;
+
+border-radius:25px;
+
+max-height:96svh;
+
+
+}
+
+
+
+.text-5xl{
+
+font-size:2.2rem!important;
+
+}
+
+
+
+.text-6xl{
+
+font-size:3rem!important;
+
+}
+
+
+
+.text-xl{
+
+font-size:1.1rem!important;
+
+}
+
+
+
+button{
+
+width:95%;
+
+font-size:16px;
+
+}
+
+
+
+.gift-gallery{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+#message strong{
+
+    font-size:32px;
+    display:inline-block;
+    color:#ff4081;
+
+}
+
+
+
+.initial-icons{
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:100%;
+
+
+}
+
+
+#memoriesPage,
+#message{
+
+
+width:100%;
+
+}
+
+
+}
+
+.scratch-card{
+
+    position:relative;
+    width:100%;
+    aspect-ratio:1;
+    border-radius:22px;
+    overflow:hidden;
+
+}
+
+.scratch-card img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
+}
+
+.scratch{
+
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    touch-action:none;
+    cursor:pointer;
+
+}
+
+/* ================= COUNTDOWN PAGE ================= */
+
+
+#countdownPage{
+
+position:fixed;
+
+inset:0;
+
+z-index:10000;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:20px;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ff758c,
+
+#ff7eb3,
+
+#fad0c4
+
+);
+
+
+overflow:hidden;
+
+}
+
+
+
+.countdown-card{
+
+width:100%;
+
+max-width:450px;
+
+background:rgba(255,255,255,.95);
+
+border-radius:35px;
+
+padding:30px 20px;
+
+text-align:center;
+
+box-shadow:
+
+0 20px 60px rgba(255,0,100,.35);
+
+
+animation:
+
+popup .8s ease;
+
+}
+
+
+
+.countdown-card h1{
+
+margin-top:20px;
+
+font-size:clamp(28px,7vw,42px);
+
+font-weight:900;
+
+color:#ff4081;
+
+}
+
+
+
+.countdown-card p{
+
+color:#777;
+
+font-size:18px;
+
+margin-top:10px;
+
+}
+
+
+
+.timer-box{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:10px;
+
+margin-top:30px;
+
+}
+
+
+
+.timer-box div{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ff9a9e,
+
+#ff4d88
+
+);
+
+
+color:white;
+
+border-radius:20px;
+
+padding:15px 5px;
+
+
+box-shadow:
+
+0 8px 20px #ff4d8866;
+
+
+}
+
+
+
+.timer-box span{
+
+display:block;
+
+font-size:clamp(25px,8vw,40px);
+
+font-weight:900;
+
+}
+
+
+
+.timer-box small{
+
+font-size:13px;
+
+font-weight:bold;
+
+}
+
+
+
+.heart-animation{
+
+font-size:35px;
+
+margin-top:30px;
+
+animation:pulse 1.5s infinite;
+
+}
+
+
+
+.waiting{
+
+font-weight:bold;
+
+color:#ff4081!important;
+
+}
+
+
+
+@media(max-width:450px){
+
+.timer-box{
+
+gap:7px;
+
+}
+
+
+.timer-box div{
+
+padding:12px 3px;
+
+border-radius:15px;
+
+}
+
+
+.countdown-card{
+
+padding:25px 15px;
+
+}
+
+
+}
+
+</style>
+
+<body>
+
+
+<!-- AUDIO FILES -->
+
+<audio
+id="birthdayAudio"
+preload="auto"
+playsinline
+webkit-playsinline>
+
+<source src="Happy_Birthday_song.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<audio
+id="loveAudio"
+preload="auto"
+loop
+playsinline
+webkit-playsinline>
+
+<source src="love_song.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<!-- ================= COUNTDOWN PAGE ================= -->
+
+<div id="countdownPage">
+
+    <div class="countdown-card">
+
+        <div class="text-6xl">
+            🎁❤️
+        </div>
+
+        <h1>
+            Something Special Is Coming...
+        </h1>
+
+        <p>
+            A beautiful surprise for my love 💖
+        </p>
+
+
+        <div class="timer-box">
+
+            <div>
+                <span id="days">0</span>
+                <small>Days</small>
+            </div>
+
+            <div>
+                <span id="hours">0</span>
+                <small>Hours</small>
+            </div>
+
+            <div>
+                <span id="minutes">0</span>
+                <small>Minutes</small>
+            </div>
+
+            <div>
+                <span id="seconds">0</span>
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+
+        <div class="heart-animation">
+            💕 💖 💕
+        </div>
+
+
+        <p class="waiting">
+            Waiting for your special moment ✨
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN CARD -->
+
+<div class="card text-center">
+
+
+
+
+
+<!-- ================= PAGE 1 ================= -->
+
+
+<div id="initial">
+
+
+
+<h1 class="text-5xl font-bold text-pink-600">
+
+💖💖💖
+
+</h1>
+
+
+
+
+
+<p class="mt-6 text-xl text-gray-700">
+
+🎂❤️ <b>Happy Birthday My Love ❤️</b>
+
+</p>
+
+
+
+
+
+<div class="mt-5 text-gray-500 leading-relaxed px-2">
+
+
+<p class="mt-4 text-gray-500">
+Wishing you a day filled with endless happiness, laughter, love, and everything your heart desires 😊✨
+May this year bring you success, good health, endless blessings, and countless reasons to smile 🌟💫
+<br><br>
+Thank you for bringing so much joy, warmth, and positivity into my life 💕🌸
+Every moment with you is a beautiful memory that I cherish forever 🥰✨
+I'll always be by your side, supporting you, loving you endlessly, and making unforgettable memories with you 🤗❤️
+<br><br>
+Enjoy your special day to the fullest 🎈🎁
+Keep smiling, keep shining, and always remember how special and loved you are 💖✨
+</p>
+
+</div>
+
+
+
+
+
+<!-- CAKE -->
+
+
+<div class="cake-area" onclick="cutCake()">
+
+
+
+<div id="cake" class="single-cake">
+
+🎂
+
+</div>
+
+
+
+<p id="cutText" class="text-pink-600 font-bold mt-3">
+
+Tap cake to cut 🎂✨
+
+</p>
+
+
+
+
+<div id="birthdayMessage"></div>
+
+
+
+</div>
+
+
+
+
+
+<div class="text-5xl mt-6 initial-icons">
+
+🎁🎉💖
+
+</div>
+
+
+
+
+
+
+
+<button
+
+onclick="openSurprise()"
+
+class="mt-8 px-8 py-3 bg-red-500 text-white rounded-xl shadow-lg">
+
+
+Click for Surprise 🎊
+
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+<!-- ================= PAGE 2 ================= -->
+
+
+<div id="message" class="hidden">
+
+
+
+<h1 class="text-5xl font-bold text-pink-600">
+
+💖💖💖
+
+</h1>
+
+
+
+
+
+<div class="mt-5 text-gray-700 leading-relaxed px-2  text-center">
+
+
+
+<p class="mt-5 text-gray-700 text-base sm:text-lg leading-relaxed">
+
+
+🎂❤️ <strong>Happy Birthday, My Love! ❤️🎉</strong><br><br>
+Happy Birthday to the most special person in my life ❤❤
+🌹 Today is the most beautiful day because it's the day the most precious person in my life was born. 🎈✨ Every moment with you is a gift 🎁, and every memory we create together becomes a treasure 💎 that I will cherish forever. ♾️💖<br><br>
+
+🥰 You are my happiness 😊, my peace 🕊️, my biggest strength 💪, and the reason my heart smiles every single day. ❤️ Thank you for filling my life with endless love 💕, laughter 😂, and countless beautiful memories 📸✨. I can't imagine my world 🌎 without you 💞<br><br>
+
+🎊 On your special day 🎂, I wish you endless happiness 😍, good health 🌿, success 🏆, and every dream you've ever wished for 🌟. May your smile 😊 always shine as brightly ✨ as it does today, and may your heart ❤️ always be filled with love 💕 and joy 🌈.<br><br>
+
+🤝 I promise to stand beside you through every happiness 😇 and every challenge 🌧️, to hold your hand 🤲, to support your dreams 🌠, and to love you a little more with every sunrise 🌅 and every sunset 🌇.<br><br>
+
+💑 No matter where life takes us 🛤️, my heart ❤️ will always choose you. You are my favorite person 🥰, my safe place 🏡, my greatest blessing 🙏, and the most beautiful chapter 📖 of my life. Loving you 💕 is the best thing that has ever happened to me. ✨<br><br>
+
+💖 I love you more than words can ever express 🥹, more than the stars in the sky 🌌✨, and more than every heartbeat in my heart 💓. My love for you grows stronger every single day 🌱❤️, and I hope this birthday 🎂 marks the beginning of your happiest 😊 and most beautiful year yet 🌸🌟.<br><br>
+
+💍 Forever yours, always and completely. 💖✨
+
+
+</p>
+</div>
+
+
+
+
+
+<div class="text-6xl mt-6 initial-icons">
+
+💖💖💖
+
+</div>
+
+
+
+
+
+<button
+
+onclick="finalSurprise()"
+
+class="mt-8 px-8 py-3 bg-red-500 text-white rounded-xl">
+
+
+🎁 Open Final Surprise
+
+
+</button>
+
+
+
+</div>
+<!-- ================= PAGE 3 ================= -->
+
+
+<div id="memoriesPage" class="hidden">
+
+
+
+<h1 class="text-4xl font-bold text-pink-600 mt-5">
+
+💖 Our Love Story 💖
+
+</h1>
+
+
+
+
+<p class="mt-3 text-gray-600">
+
+Every picture has a beautiful memory ❤️
+
+</p>
+
+
+
+
+
+<!-- TIMER -->
+
+
+<div class="bg-pink-100 rounded-3xl p-5 mt-8 shadow-lg">
+
+
+<h2 class="text-2xl font-bold text-pink-600">
+
+❤️ Together Forever
+
+</h2>
+
+
+<p id="loveTimer" class="text-xl mt-3">
+
+Loading...
+
+</p>
+
+
+</div>
+
+
+
+
+
+<!-- PHOTO CARDS -->
+
+
+<div class="bg-white rounded-3xl shadow-xl p-4 mt-8 overflow-hidden">
+
+
+<img
+src="Pic1.jpg"
+
+alt="Our Special Moment"
+
+loading="lazy"
+
+onclick="showMemory(1)"
+
+class="rounded-2xl w-full h-80 object-cover">
+
+
+<h2 class="text-xl text-pink-600 font-bold mt-3">
+
+🌹 Our Special Moment
+
+</h2>
+
+
+<p id="memory1" class="hidden mt-3">
+
+This moment became special because I was with you ❤️
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="bg-white rounded-3xl shadow-xl p-4 mt-8 overflow-hidden">
+
+
+<img
+src="Pic2.jpg"
+
+alt="Beautiful Smile"
+
+loading="lazy"
+
+onclick="showMemory(2)"
+
+class="rounded-2xl w-full h-80 object-cover">
+
+
+<h2 class="text-xl text-pink-600 font-bold mt-3">
+
+✨ Beautiful Smile
+
+</h2>
+
+
+<p id="memory2" class="hidden mt-3">
+
+Your smile makes my world brighter 😊❤️
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="bg-white rounded-3xl shadow-xl p-4 mt-8 overflow-hidden">
+
+
+<img
+src="Pic3.jpg"
+
+alt="Forever Together"
+
+loading="lazy"
+
+onclick="showMemory(3)"
+
+class="rounded-2xl w-full h-80 object-cover">
+
+
+<h2 class="text-xl text-pink-600 font-bold mt-3">
+
+💑 Forever Together
+
+</h2>
+
+
+<p id="memory3" class="hidden mt-3">
+
+Every memory with you is a treasure 💕
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="bg-white rounded-3xl shadow-xl p-4 mt-8 overflow-hidden">
+
+
+<img
+src="Pic4.jpg"
+
+alt="My Favorite Person"
+
+loading="lazy"
+
+onclick="showMemory(4)"
+
+class="rounded-2xl w-full h-80 object-cover">
+
+
+<h2 class="text-xl text-pink-600 font-bold mt-3">
+
+💖 My Favorite Person
+
+</h2>
+
+
+<p id="memory4" class="hidden mt-3">
+
+Thank you for making my life beautiful ❤️
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- SECRET LOVE LETTERS -->
+
+
+<h2 class="text-3xl font-bold text-pink-600 mt-10">
+
+💌 Secret Love Letters
+
+</h2>
+
+
+
+
+
+
+<div class="letter" onclick="openLetter(1)">
+
+
+<h3 class="text-xl font-bold">
+
+💌 Open when you miss me 💕
+
+</h3>
+
+
+<p id="letter1" class="hidden mt-3">
+
+
+❤️ Even when we are apart, my heart is always beside you.
+
+
+Remember our beautiful moments and know that I love you endlessly 💖
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="letter" onclick="openLetter(2)">
+
+
+<h3 class="text-xl font-bold">
+
+💌 Open when you feel sad 🥺
+
+</h3>
+
+
+<p id="letter2" class="hidden mt-3">
+
+
+🌈 Your smile is my favorite thing in this world.
+
+
+Never forget how special and loved you are ❤️
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="letter" onclick="openLetter(3)">
+
+
+<h3 class="text-xl font-bold">
+
+💌 Open when you need love 💋
+
+</h3>
+
+
+<p id="letter3" class="hidden mt-3">
+
+
+💖 Sending you unlimited hugs, kisses and all my love.
+
+
+You are my forever person ❤️
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- GIFT -->
+
+
+<div class="mt-10">
+
+
+<div
+
+id="gift"
+
+onclick="openGift()"
+
+class="text-7xl cursor-pointer bg-pink-50 rounded-full p-5 inline-block shadow-lg">
+
+
+🎁
+
+
+</div>
+
+
+
+<p class="text-pink-600 font-bold mt-3">
+
+Tap gift box 🎁
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- VOICE MESSAGE -->
+
+
+<div class="mt-10">
+
+
+<h2 class="text-2xl font-bold text-pink-600">
+
+🎧 My Voice Message ❤️
+
+</h2>
+
+
+
+
+
+<audio
+
+id="voiceNote"
+
+controls
+
+preload="metadata"
+
+playsinline
+
+webkit-playsinline
+
+class="mx-auto mt-3"
+
+onplay="pauseLoveSong()"
+
+onpause="resumeLoveSong()"
+
+onended="resumeLoveSong()">
+
+
+
+<source src="my_voice.mp3" type="audio/mpeg">
+
+
+</audio>
+
+
+</div>
+
+
+
+
+
+
+<button
+
+onclick="lastSurprise()"
+
+class="mt-8 px-8 py-3 bg-red-500 text-white rounded-xl">
+
+
+🎆 Final Surprise
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+
+</html>
+<script>
+
+
+// ================= CONFETTI =================
+
+
+function launchConfetti(amount=150,spread=100){
+
+    if(typeof confetti==="function"){
+
+        confetti({
+
+            particleCount:amount,
+
+            spread:spread
+
+        });
+
+    }
+
+}
+
+
+
+
+
+// ================= CAKE =================
+
+
+function cutCake(){
+
+
+let cake=document.getElementById("cake");
+
+
+if(cake.dataset.cut)return;
+
+
+cake.dataset.cut="true";
+
+
+let audio=document.getElementById("birthdayAudio");
+
+
+if(audio){
+
+audio.currentTime=0;
+
+audio.play().catch(()=>{});
+
+}
+
+
+
+document.getElementById("cutText").style.display="none";
+
+
+cake.classList.add("cut-cake");
+
+
+
+setTimeout(()=>{
+
+
+cake.innerHTML=
+
+`
+
+<span class="cake-piece">🍰</span>
+
+<span class="cake-piece">🍰</span>
+
+`;
+
+
+
+document.getElementById("birthdayMessage").innerHTML=
+
+`
+
+<div class="birthday-text">
+
+🎉 Happy 27th Birthday, Baby! ❤️
+
+</div>
+
+`;
+
+
+
+launchConfetti(300,150);
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= OPEN PAGE 2 =================
+
+
+function openSurprise(){
+
+
+document.getElementById("initial").style.display="none";
+
+
+
+let msg=document.getElementById("message");
+
+
+msg.classList.remove("hidden");
+
+
+msg.style.display="block";
+
+
+msg.classList.add("popup");
+
+
+
+// MOBILE FIX: OPEN FROM TOP
+
+document.querySelector(".card").scrollTop=0;
+
+
+
+let b=document.getElementById("birthdayAudio");
+
+
+if(b){
+
+b.pause();
+
+b.currentTime=0;
+
+}
+
+
+
+let love=document.getElementById("loveAudio");
+
+
+if(love){
+
+love.currentTime=0;
+
+love.play().catch(()=>{});
+
+}
+
+
+
+launchConfetti(250,120);
+
+
+createHearts();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= OPEN PAGE 3 =================
+
+
+function finalSurprise(){
+
+
+
+document.getElementById("message").style.display="none";
+
+
+
+let page=document.getElementById("memoriesPage");
+
+
+
+page.classList.remove("hidden");
+
+
+page.style.display="block";
+
+
+page.classList.add("popup");
+
+
+
+// MOBILE FIX: OPEN FROM TOP
+
+document.querySelector(".card").scrollTop=0;
+
+
+
+startTimer();
+
+
+createHearts();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= MEMORY =================
+
+
+function showMemory(num){
+
+
+let item=document.getElementById("memory"+num);
+
+
+if(item){
+
+item.classList.toggle("hidden");
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= LETTER =================
+
+
+function openLetter(num){
+
+
+let item=document.getElementById("letter"+num);
+
+
+if(item){
+
+
+item.classList.toggle("hidden");
+
+
+
+if(!item.classList.contains("hidden")){
+
+
+item.classList.add("popup");
+
+
+launchConfetti(80,70);
+
+
+createHearts();
+
+
+}
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= TIMER =================
+
+
+let timerStarted=false;
+
+
+
+function startTimer(){
+
+
+
+if(timerStarted)return;
+
+
+
+timerStarted=true;
+
+
+
+let start=new Date("2024-03-20");
+
+
+
+setInterval(()=>{
+
+
+
+let now=new Date();
+
+
+
+let diff=now-start;
+
+
+
+let days=Math.floor(diff/(1000*60*60*24));
+
+
+
+let hours=Math.floor((diff/(1000*60*60))%24);
+
+
+
+let minutes=Math.floor((diff/(1000*60))%60);
+
+
+
+let seconds=Math.floor((diff/1000)%60);
+
+
+
+
+let timer=document.getElementById("loveTimer");
+
+
+
+if(timer){
+
+
+
+timer.innerHTML=
+
+
+
+days+" Days ❤️ "+
+
+hours+" Hours ❤️ "+
+
+minutes+" Minutes ❤️ "+
+
+seconds+" Seconds";
+
+
+
+}
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= GIFT =================
+
+
+function openGift() {
+
+    launchConfetti(150,100);
+
+    let popup=document.createElement("div");
+    popup.className="gift-popup";
+
+    popup.innerHTML=`
+
+    <div class="gift-gallery">
+
+        <div class="scratch-card">
+            <img src="Gift1.jpg">
+            <canvas class="scratch"></canvas>
+        </div>
+
+        <div class="scratch-card">
+            <img src="Gift2.jpg">
+            <canvas class="scratch"></canvas>
+        </div>
+
+        <div class="scratch-card">
+            <img src="Gift3.jpg">
+            <canvas class="scratch"></canvas>
+        </div>
+
+        <div class="scratch-card">
+            <img src="Gift4.jpg">
+            <canvas class="scratch"></canvas>
+        </div>
+
+    </div>
+
+    <p class="text-pink-600 font-bold mt-4">
+        🎁 Scratch each card to reveal your surprise ❤️
+    </p>
+
+    <button onclick="this.parentElement.remove()">
+        Close
+    </button>
+
+    `;
+
+    document.body.appendChild(popup);
+
+    popup.querySelectorAll(".scratch").forEach(initScratchCard);
+}
+
+
+
+
+
+
+
+
+
+// ================= HEARTS =================
+
+
+function createHearts(){
+
+
+
+for(let i=0;i<40;i++){
+
+
+
+let h=document.createElement("div");
+
+
+
+h.innerHTML="❤️";
+
+
+
+h.className="heart";
+
+
+
+h.style.left=Math.random()*100+"vw";
+
+
+
+h.style.fontSize=(20+Math.random()*30)+"px";
+
+
+
+h.style.animationDuration=(3+Math.random()*5)+"s";
+
+
+
+document.body.appendChild(h);
+
+
+
+
+
+setTimeout(()=>h.remove(),8000);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= FINAL MOVING SCREEN =================
+
+
+function lastSurprise(){
+
+
+
+if(document.getElementById("finalScreen"))return;
+
+
+
+launchConfetti(200,120);
+
+
+
+
+let final=document.createElement("div");
+
+
+
+final.id="finalScreen";
+
+
+
+final.style.position="fixed";
+
+final.style.inset="0";
+
+
+
+final.style.background=
+
+"linear-gradient(135deg,#ffd1dc,#ff9a9e,#fad0c4)";
+
+
+
+final.style.display="flex";
+
+final.style.alignItems="center";
+
+final.style.justifyContent="center";
+
+final.style.flexDirection="column";
+
+final.style.textAlign="center";
+
+final.style.color="white";
+
+final.style.fontSize="clamp(20px,6vw,38px)";
+
+final.style.fontWeight="bold";
+
+final.style.zIndex="9999";
+
+final.style.overflow="hidden";
+
+
+
+document.body.appendChild(final);
+
+
+
+
+
+let messages=[
+
+
+"I Love You ❤️",
+
+
+"Forever Yours 💖",
+
+
+"My Happiness 🥰",
+
+
+"My Favorite Person ❤️",
+
+
+"Always With You 💕",
+
+
+"My Everything 🌹",
+
+
+"Love You Forever ♾️",
+
+
+"My Heart Is Yours ❤️",
+
+
+"You Are My World 🌎",
+
+
+"Together Forever 🥰"
+
+
+];
+
+
+
+
+
+messages.forEach(msg=>{
+
+
+let t=document.createElement("div");
+
+
+t.innerHTML=msg;
+
+
+t.style.position="absolute";
+
+
+t.style.left=Math.random()*70+"vw";
+
+
+t.style.top=Math.random()*70+"vh";
+
+
+t.style.fontSize="24px";
+
+
+t.style.textShadow="0 0 15px #ff1493";
+
+
+t.style.animation=
+
+"floatMessage 5s infinite ease-in-out";
+
+
+
+final.appendChild(t);
+
+
+
+});
+
+
+
+
+
+
+
+for(let i=0;i<25;i++){
+
+
+
+let h=document.createElement("div");
+
+
+
+h.innerHTML="❤️";
+
+
+
+h.style.position="absolute";
+
+
+
+h.style.left=Math.random()*90+"%";
+
+
+
+h.style.top=Math.random()*90+"%";
+
+
+
+h.style.fontSize="35px";
+
+
+
+h.style.animation=
+
+"bounceLove 3s infinite ease-in-out";
+
+
+
+final.appendChild(h);
+
+
+
+}
+
+
+
+
+
+
+
+
+for(let i=0;i<10;i++){
+
+
+
+let k=document.createElement("div");
+
+
+
+k.innerHTML="💋";
+
+
+
+k.style.position="absolute";
+
+
+
+k.style.left=Math.random()*90+"%";
+
+
+
+k.style.top=Math.random()*90+"%";
+
+
+
+k.style.fontSize="40px";
+
+
+
+k.style.animation=
+
+"bounceLove 4s infinite ease-in-out";
+
+
+
+final.appendChild(k);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================= AUDIO CONTROL =================
+
+
+function pauseLoveSong(){
+
+
+let a=document.getElementById("loveAudio");
+
+
+if(a&&!a.paused){
+
+
+a.pause();
+
+
+}
+
+
+}
+
+
+
+
+
+function resumeLoveSong(){
+
+
+let a=document.getElementById("loveAudio");
+
+
+if(a){
+
+
+a.play().catch(()=>{});
+
+
+}
+
+
+}
+
+
+function initScratchCard(canvas){
+
+    const ctx=canvas.getContext("2d");
+
+    const card=canvas.parentElement;
+
+    const w=card.offsetWidth;
+    const h=card.offsetHeight;
+
+    canvas.width=w;
+    canvas.height=h;
+
+    // Scratch coating
+    ctx.fillStyle="#c0c0c0";
+    ctx.fillRect(0,0,w,h);
+
+    // Text
+    ctx.fillStyle="#ffffff";
+    ctx.font="bold 24px sans-serif";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.fillText("Scratch Me ❤️",w/2,h/2);
+
+    ctx.globalCompositeOperation="destination-out";
+
+    let drawing=false;
+
+    function scratch(x,y){
+
+        ctx.beginPath();
+        ctx.arc(x,y,25,0,Math.PI*2);
+        ctx.fill();
+
+    }
+
+    canvas.addEventListener("pointerdown",e=>{
+
+        drawing=true;
+
+        scratch(e.offsetX,e.offsetY);
+
+    });
+
+    canvas.addEventListener("pointermove",e=>{
+
+        if(!drawing) return;
+
+        scratch(e.offsetX,e.offsetY);
+
+    });
+
+    window.addEventListener("pointerup",()=>{
+
+        drawing=false;
+
+        checkReveal();
+
+    });
+
+    function checkReveal(){
+
+        const pixels=ctx.getImageData(0,0,w,h).data;
+
+        let cleared=0;
+
+        for(let i=3;i<pixels.length;i+=4){
+
+            if(pixels[i]===0) cleared++;
+
+        }
+
+        const percent=cleared/(w*h);
+
+        if(percent>0.55){
+
+            canvas.style.transition=".6s";
+            canvas.style.opacity="0";
+            setTimeout(()=>canvas.remove(),600);
+
+            launchConfetti(80,80);
+
+        }
+
+    }
+
+}
+// ================= BIRTHDAY COUNTDOWN =================
+
+
+function startCountdown(){
+
+
+const target = new Date("November 16, 2026 00:00:00").getTime();
+
+
+
+let countdown=setInterval(()=>{
+
+
+let now=new Date().getTime();
+
+
+let distance=target-now;
+
+
+
+if(distance<=0){
+
+
+clearInterval(countdown);
+
+
+document.getElementById("countdownPage").style.display="none";
+
+
+document.getElementById("initial").style.display="block";
+
+
+launchConfetti(300,150);
+
+
+createHearts();
+
+
+return;
+
+
+}
+
+
+
+let days=Math.floor(distance/(1000*60*60*24));
+
+
+let hours=Math.floor(
+(distance%(1000*60*60*24))/(1000*60*60)
+);
+
+
+
+let minutes=Math.floor(
+(distance%(1000*60*60))/(1000*60)
+);
+
+
+
+let seconds=Math.floor(
+(distance%(1000*60))/1000
+);
+
+
+
+document.getElementById("days").innerHTML=days;
+
+document.getElementById("hours").innerHTML=hours;
+
+document.getElementById("minutes").innerHTML=minutes;
+
+document.getElementById("seconds").innerHTML=seconds;
+
+
+
+},1000);
+
+
+
+}
+
+
+
+window.addEventListener("load",()=>{
+
+
+document.getElementById("initial").style.display="none";
+
+
+startCountdown();
+
+
+});
+
+</script>
